@@ -6,7 +6,7 @@
     <title>民間借款會系統</title>
     <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts - Inter -->
+    <!-- 引入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -14,73 +14,17 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <style>
-        /* 自定義樣式 */
-        body {
-            font-family: 'Inter', 'Noto Sans TC', sans-serif;
-            background-color: #f1f5f9; /* slate-100 */
-        }
-        .card {
-            background-color: white;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            padding: 1.5rem; /* p-6 */
-            margin-bottom: 1.5rem; /* mb-6 */
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem; /* rounded-lg */
-            font-weight: 500;
-            transition: background-color 0.2s;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background-color: #4f46e5; /* indigo-600 */
-            color: white;
-        }
-        .btn-primary:hover {
-            background-color: #4338ca; /* indigo-700 */
-        }
-        .input-field {
-            width: 100%;
-            padding: 0.5rem 0.75rem;
-            border: 1px solid #cbd5e1; /* slate-300 */
-            border-radius: 0.5rem; /* rounded-lg */
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .input-field:focus {
-            outline: none;
-            border-color: #4f46e5; /* indigo-600 */
-            box-shadow: 0 0 0 2px #c7d2fe; /* indigo-200 */
-        }
-        .table-auto th, .table-auto td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0; /* slate-200 */
-        }
-        .table-auto th {
-            background-color: #f8fafc; /* slate-50 */
-            font-weight: 600;
-        }
-        /* 訊息提示框樣式 */
-        .toast {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            background-color: #10b981; /* green-500 */
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
-            transform: translateX(120%);
-            transition: transform 0.5s ease-in-out;
-            z-index: 50;
-        }
-        .toast.show {
-            transform: translateX(0);
-        }
+        body { font-family: 'Inter', 'Noto Sans TC', sans-serif; background-color: #f1f5f9; }
+        .card { background-color: white; border-radius: 0.75rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 500; transition: background-color 0.2s; cursor: pointer; }
+        .btn-primary { background-color: #4f46e5; color: white; }
+        .btn-primary:hover { background-color: #4338ca; }
+        .input-field { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .input-field:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 2px #c7d2fe; }
+        .table-auto th, .table-auto td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .table-auto th { background-color: #f8fafc; font-weight: 600; }
+        .toast { position: fixed; top: 1.5rem; right: 1.5rem; background-color: #10b981; color: white; padding: 1rem 1.5rem; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1); transform: translateX(120%); transition: transform 0.5s ease-in-out; z-index: 50; }
+        .toast.show { transform: translateX(0); }
     </style>
 </head>
 <body class="bg-slate-100">
@@ -91,8 +35,8 @@
             <h2 class="text-3xl font-bold text-center text-slate-800">民間借款會系統登入</h2>
             <form id="login-form" class="space-y-4">
                 <div>
-                    <label for="username" class="text-sm font-medium text-slate-700">帳號</label>
-                    <input type="text" id="username" class="input-field mt-1" required value="admin">
+                    <label for="email" class="text-sm font-medium text-slate-700">電子郵件</label>
+                    <input type="email" id="email" class="input-field mt-1" required value="admin@example.com">
                 </div>
                 <div>
                     <label for="password" class="text-sm font-medium text-slate-700">密碼</label>
@@ -102,8 +46,8 @@
                 <button type="submit" class="w-full btn btn-primary !py-2.5 !mt-6">登入</button>
             </form>
             <div class="text-xs text-slate-400 text-center">
-                <p>管理員帳號: admin / admin123</p>
-                <p>一般會員帳號: user / user123</p>
+                <p>管理員 Email: admin@example.com / admin123</p>
+                <p>一般會員 Email: user@example.com / user123</p>
             </div>
         </div>
     </div>
@@ -111,25 +55,25 @@
     <!-- 主應用程式畫面 (預設隱藏) -->
     <div id="main-app" class="hidden p-4 sm:p-6 md:p-8">
         <div class="max-w-7xl mx-auto">
-            <!-- 頁面標題 -->
             <header class="flex flex-wrap items-center justify-between mb-8 gap-4">
                 <h1 class="text-3xl font-bold text-slate-800">民間借款會系統</h1>
                 <div class="flex items-center gap-4">
                     <div class="text-sm text-slate-600">
                         歡迎, <span id="current-user-role" class="font-semibold"></span> <span id="current-user-name" class="font-bold"></span>
                     </div>
+                    <!-- 使用者管理按鈕 (僅管理員可見) -->
+                    <button id="user-management-btn" class="btn bg-sky-500 hover:bg-sky-600 text-white text-sm admin-only">
+                        <ion-icon name="people-outline" class="mr-1"></ion-icon>
+                        使用者管理
+                    </button>
                     <button id="logout-btn" class="btn bg-red-500 hover:bg-red-600 text-white text-sm">
                         <ion-icon name="log-out-outline" class="mr-1"></ion-icon>
                         登出
                     </button>
                 </div>
             </header>
-
-            <!-- 訊息提示框 -->
             <div id="toast-notification" class="toast"></div>
-
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- 左側：客戶搜尋與資訊 -->
                 <div class="lg:col-span-1">
                     <div class="card">
                         <h2 class="text-xl font-semibold text-slate-700 mb-4">客戶查詢</h2>
@@ -142,435 +86,415 @@
                         </div>
                         <div id="search-result" class="mt-4 text-slate-600"></div>
                     </div>
-
-                    <!-- 客戶資訊卡片 -->
                     <div id="customer-info-card" class="card hidden">
                         <h2 class="text-xl font-semibold text-slate-700 mb-4">客戶詳細資料</h2>
                         <div class="grid grid-cols-2 gap-x-4 gap-y-3">
-                            <div>
-                                <label class="text-sm font-medium text-slate-500">姓名</label>
-                                <p id="info-name" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-slate-500">出生年次</label>
-                                <p id="info-birthYear" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div class="col-span-2">
-                                <label class="text-sm font-medium text-slate-500">聯絡電話</label>
-                                <p id="info-phone" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div class="col-span-2">
-                                <label class="text-sm font-medium text-slate-500">身分證號</label>
-                                <p id="info-id" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-slate-500">地區</label>
-                                <p id="info-address" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-slate-500">職業</label>
-                                <p id="info-occupation" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-slate-500">黑名單狀況</label>
-                                <p id="info-blacklistStatus" class="text-lg text-slate-800 font-semibold"></p>
-                            </div>
-                            <div>
-                                <label class="text-sm font-medium text-slate-500">繳款狀況</label>
-                                <p id="info-paymentStatus" class="text-lg text-slate-800"></p>
-                            </div>
-                            <div class="col-span-2">
-                                <label class="text-sm font-medium text-slate-500">信用空間</label>
-                                <p id="info-creditSpace" class="text-lg text-slate-800 font-bold"></p>
-                            </div>
+                            <div><label class="text-sm font-medium text-slate-500">姓名</label><p id="info-name" class="text-lg text-slate-800"></p></div>
+                            <div><label class="text-sm font-medium text-slate-500">出生年次</label><p id="info-birthYear" class="text-lg text-slate-800"></p></div>
+                            <div class="col-span-2"><label class="text-sm font-medium text-slate-500">聯絡電話</label><p id="info-phone" class="text-lg text-slate-800"></p></div>
+                            <div class="col-span-2"><label class="text-sm font-medium text-slate-500">身分證號</label><p id="info-id" class="text-lg text-slate-800"></p></div>
+                            <div><label class="text-sm font-medium text-slate-500">地區</label><p id="info-address" class="text-lg text-slate-800"></p></div>
+                            <div><label class="text-sm font-medium text-slate-500">職業</label><p id="info-occupation" class="text-lg text-slate-800"></p></div>
+                            <div><label class="text-sm font-medium text-slate-500">黑名單狀況</label><p id="info-blacklistStatus" class="text-lg text-slate-800 font-semibold"></p></div>
+                            <div><label class="text-sm font-medium text-slate-500">繳款狀況</label><p id="info-paymentStatus" class="text-lg text-slate-800"></p></div>
+                            <div class="col-span-2"><label class="text-sm font-medium text-slate-500">信用空間</label><p id="info-creditSpace" class="text-lg text-slate-800 font-bold"></p></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- 右側：借款與照會紀錄 -->
                 <div class="lg:col-span-2">
                     <div id="records-section" class="hidden">
-                        <!-- 借款紀錄 -->
                         <div class="card">
                             <div class="flex justify-between items-center mb-4">
                                 <h2 class="text-xl font-semibold text-slate-700">借款紀錄</h2>
-                                <button id="add-loan-btn" class="btn btn-primary admin-only">
-                                    <ion-icon name="add-outline" class="mr-1"></ion-icon>
-                                    新增借款
-                                </button>
+                                <button id="add-loan-btn" class="btn btn-primary admin-only"><ion-icon name="add-outline" class="mr-1"></ion-icon>新增借款</button>
                             </div>
-                            <div class="overflow-x-auto">
-                                <table class="w-full table-auto text-sm">
-                                    <thead>
-                                        <tr>
-                                            <th>當票號碼</th>
-                                            <th>品項</th>
-                                            <th>借款金額</th>
-                                            <th>借款日期</th>
-                                            <th>狀態</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="loan-records-body"></tbody>
-                                </table>
-                            </div>
+                            <div class="overflow-x-auto"><table class="w-full table-auto text-sm"><thead><tr><th>當票號碼</th><th>品項</th><th>借款金額</th><th>借款日期</th><th>狀態</th></tr></thead><tbody id="loan-records-body"></tbody></table></div>
                         </div>
-
-                        <!-- 照會紀錄 -->
                         <div class="card">
                             <h2 class="text-xl font-semibold text-slate-700 mb-4">備註 / 照會紀錄</h2>
                             <div id="inquiry-history" class="space-y-4 mb-4 max-h-60 overflow-y-auto pr-2"></div>
-                            <div class="admin-only">
-                                <div class="space-y-2">
-                                    <textarea id="inquiry-note-input" class="input-field" rows="3" placeholder="新增備註內容..."></textarea>
-                                    <button id="add-inquiry-btn" class="btn btn-primary w-full sm:w-auto">
-                                        <ion-icon name="add-circle-outline" class="mr-1"></ion-icon>
-                                        新增紀錄
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="admin-only"><div class="space-y-2"><textarea id="inquiry-note-input" class="input-field" rows="3" placeholder="新增備註內容..."></textarea><button id="add-inquiry-btn" class="btn btn-primary w-full sm:w-auto"><ion-icon name="add-circle-outline" class="mr-1"></ion-icon>新增紀錄</button></div></div>
                         </div>
                     </div>
-                    <div id="no-customer-selected" class="card flex items-center justify-center h-full">
-                        <p class="text-slate-500">請先查詢並選擇一位客戶以查看紀錄。</p>
-                    </div>
+                    <div id="no-customer-selected" class="card flex items-center justify-center h-full"><p class="text-slate-500">請先查詢並選擇一位客戶以查看紀錄。</p></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 彈出式視窗 (Modal) -->
+    <!-- Modal -->
     <div id="modal-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
-    <div id="modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl p-6 w-11/12 max-w-lg hidden z-50">
-        <div id="modal-content"></div>
-    </div>
+    <div id="modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-2xl p-6 w-11/12 max-w-2xl hidden z-50"><div id="modal-content"></div></div>
 
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { getFirestore, collection, doc, getDoc, getDocs, onSnapshot, addDoc, updateDoc, arrayUnion, Timestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-<script>
-    // --- 使用者帳號資料庫 ---
-    const users = {
-        admin: { password: 'admin123', role: 'admin', name: '管理員' },
-        user: { password: 'user123', role: 'user', name: '一般會員' }
-    };
-    let currentUser = null;
-
-    // --- 模擬資料庫 ---
-    let customers = [
-        { id: 1, name: "陳小明", phone: "0912345678", idNumber: "A123456789", birthYear: "75", address: "台北市信義區", occupation: "工程師", blacklistStatus: "無", paymentStatus: "正常", creditSpace: "尚有空間", loans: [{ ticket: "A001", item: "黃金項鍊", amount: 50000, date: "2024-06-01", status: "典當中" }, { ticket: "A002", item: "勞力士手錶", amount: 150000, date: "2024-07-15", status: "典當中" }], inquiries: [{ date: "2024-07-15 10:30", note: "客戶來電詢問利息，已告知。" }, { date: "2024-06-05 14:00", note: "首次典當，確認身份無誤。" }] },
-        { id: 2, name: "林美麗", phone: "0987654321", idNumber: "F210987654", birthYear: "82", address: "新北市板橋區", occupation: "服務業", blacklistStatus: "有前科", paymentStatus: "偶有延遲", creditSpace: "已借滿", loans: [{ ticket: "B001", item: "筆記型電腦", amount: 15000, date: "2024-05-20", status: "已贖回" }], inquiries: [{ date: "2024-05-20 11:00", note: "學生，急需用錢，物品狀況良好。" }] }
-    ];
-    let selectedCustomerId = null;
-
-    // --- DOM 元素 ---
-    const loginScreen = document.getElementById('login-screen');
-    const mainApp = document.getElementById('main-app');
-    const loginForm = document.getElementById('login-form');
-    const loginError = document.getElementById('login-error');
-    const logoutBtn = document.getElementById('logout-btn');
-
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-    const searchResult = document.getElementById('search-result');
-    const customerInfoCard = document.getElementById('customer-info-card');
-    const recordsSection = document.getElementById('records-section');
-    const noCustomerSelected = document.getElementById('no-customer-selected');
-    
-    const infoName = document.getElementById('info-name');
-    const infoPhone = document.getElementById('info-phone');
-    const infoId = document.getElementById('info-id');
-    const infoBirthYear = document.getElementById('info-birthYear');
-    const infoAddress = document.getElementById('info-address');
-    const infoOccupation = document.getElementById('info-occupation');
-    const infoBlacklistStatus = document.getElementById('info-blacklistStatus');
-    const infoPaymentStatus = document.getElementById('info-paymentStatus');
-    const infoCreditSpace = document.getElementById('info-creditSpace');
-    
-    const loanRecordsBody = document.getElementById('loan-records-body');
-    const inquiryHistory = document.getElementById('inquiry-history');
-    const inquiryNoteInput = document.getElementById('inquiry-note-input');
-    const addInquiryBtn = document.getElementById('add-inquiry-btn');
-    const addLoanBtn = document.getElementById('add-loan-btn');
-
-    const modalBackdrop = document.getElementById('modal-backdrop');
-    const modal = document.getElementById('modal');
-    const modalContent = document.getElementById('modal-content');
-    const toast = document.getElementById('toast-notification');
-
-    // --- 核心功能函數 ---
-
-    // 處理登入
-    function handleLogin(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        
-        const user = users[username];
-        if (user && user.password === password) {
-            currentUser = { username, ...user };
-            loginScreen.classList.add('hidden');
-            mainApp.classList.remove('hidden');
-            loginError.classList.add('hidden');
-            setupUIForRole();
-            // 登入後預設載入第一筆資料
-            if (customers && customers.length > 0) {
-                selectCustomer(customers[0].id, true);
-            }
-        } else {
-            loginError.classList.remove('hidden');
-        }
-    }
-    
-    // 處理登出
-    function handleLogout() {
-        currentUser = null;
-        mainApp.classList.add('hidden');
-        loginScreen.classList.remove('hidden');
-        document.getElementById('username').value = '';
-        document.getElementById('password').value = '';
-        clearCustomerDisplay();
-    }
-
-    // 根據角色設定UI
-    function setupUIForRole() {
-        if (!currentUser) return;
-
-        document.getElementById('current-user-name').textContent = currentUser.name;
-        document.getElementById('current-user-role').textContent = currentUser.role === 'admin' ? '管理員' : '一般會員';
-
-        const adminOnlyElements = document.querySelectorAll('.admin-only');
-        if (currentUser.role === 'admin') {
-            adminOnlyElements.forEach(el => el.classList.remove('hidden'));
-        } else {
-            adminOnlyElements.forEach(el => el.classList.add('hidden'));
-        }
-    }
-
-    // 顯示提示訊息
-    function showToast(message, isSuccess = true) {
-        toast.textContent = message;
-        toast.className = `toast show ${isSuccess ? 'bg-green-500' : 'bg-red-500'}`;
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
-    }
-
-    // 顯示/隱藏 Modal
-    function showModal(content) {
-        modalContent.innerHTML = content;
-        modalBackdrop.classList.remove('hidden');
-        modal.classList.remove('hidden');
-    }
-
-    function hideModal() {
-        modalBackdrop.classList.add('hidden');
-        modal.classList.add('hidden');
-        modalContent.innerHTML = '';
-    }
-
-    // 渲染客戶資料
-    function renderCustomerData(customer) {
-        infoName.textContent = customer.name || '-';
-        infoPhone.textContent = customer.phone || '-';
-        infoId.textContent = customer.idNumber || '-';
-        infoBirthYear.textContent = customer.birthYear || '-';
-        infoAddress.textContent = customer.address || '-';
-        infoOccupation.textContent = customer.occupation || '-';
-        infoBlacklistStatus.textContent = customer.blacklistStatus || '-';
-        infoPaymentStatus.textContent = customer.paymentStatus || '-';
-        infoCreditSpace.textContent = customer.creditSpace || '-';
-
-        infoCreditSpace.classList.remove('text-red-600', 'text-green-600');
-        if (customer.creditSpace === '已借滿') {
-            infoCreditSpace.classList.add('text-red-600');
-        } else {
-            infoCreditSpace.classList.add('text-green-600');
-        }
-        
-        customerInfoCard.classList.remove('hidden');
-        recordsSection.classList.remove('hidden');
-        noCustomerSelected.classList.add('hidden');
-        
-        renderLoanRecords(customer.loans);
-        renderInquiryHistory(customer.inquiries);
-    }
-
-    // 渲染借款紀錄
-    function renderLoanRecords(loans) {
-        loanRecordsBody.innerHTML = '';
-        if (!loans || loans.length === 0) {
-            loanRecordsBody.innerHTML = '<tr><td colspan="5" class="text-center text-slate-500 py-4">無借款紀錄</td></tr>';
-            return;
-        }
-        loans.forEach(loan => {
-            const statusColor = loan.status === '典當中' ? 'text-red-600' : (loan.status === '已贖回' ? 'text-green-600' : 'text-slate-600');
-            const row = `<tr><td>${loan.ticket}</td><td>${loan.item}</td><td>NT$ ${loan.amount.toLocaleString()}</td><td>${loan.date}</td><td class="font-semibold ${statusColor}">${loan.status}</td></tr>`;
-            loanRecordsBody.innerHTML += row;
-        });
-    }
-
-    // 渲染照會紀錄
-    function renderInquiryHistory(inquiries) {
-        inquiryHistory.innerHTML = '';
-        if (!inquiries || inquiries.length === 0) {
-            inquiryHistory.innerHTML = '<p class="text-center text-slate-500">無備註紀錄</p>';
-            return;
-        }
-        inquiries.sort((a, b) => new Date(b.date) - new Date(a.date));
-        inquiries.forEach(inquiry => {
-            const item = `<div class="bg-slate-50 p-3 rounded-lg"><p class="text-slate-800">${inquiry.note}</p><p class="text-xs text-slate-400 text-right mt-1">${inquiry.date}</p></div>`;
-            inquiryHistory.innerHTML += item;
-        });
-    }
-    
-    // 清除客戶顯示
-    function clearCustomerDisplay() {
-        selectedCustomerId = null;
-        customerInfoCard.classList.add('hidden');
-        recordsSection.classList.add('hidden');
-        noCustomerSelected.classList.remove('hidden');
-        searchResult.innerHTML = '';
-        searchInput.value = '';
-    }
-
-    // 處理客戶搜尋
-    function handleSearch() {
-        const query = searchInput.value.trim().toLowerCase();
-        if (!query) {
-            clearCustomerDisplay();
-            searchResult.innerHTML = '<p class="text-sm text-yellow-600">請輸入查詢條件。</p>';
-            return;
-        }
-
-        const results = customers.filter(c => c.name.toLowerCase().includes(query) || c.phone.includes(query));
-        
-        searchResult.innerHTML = '';
-        if (results.length > 0) {
-            const resultList = results.map(c => `<div class="p-2 hover:bg-slate-100 rounded-md cursor-pointer" onclick="selectCustomer(${c.id})"><p class="font-medium text-slate-800">${c.name}</p><p class="text-sm text-slate-500">${c.phone}</p></div>`).join('');
-            searchResult.innerHTML = resultList;
-        } else {
-            let addCustomerBtnHTML = '';
-            if (currentUser && currentUser.role === 'admin') {
-                addCustomerBtnHTML = `<button class="text-sm text-indigo-600 hover:underline mt-2" onclick="showAddCustomerModal()">是否要新增客戶？</button>`;
-            }
-            searchResult.innerHTML = `<p class="text-sm text-red-600">查無此客戶。</p>${addCustomerBtnHTML}`;
-            clearCustomerDisplay();
-        }
-    }
-
-    // 選擇客戶
-    window.selectCustomer = function(customerId, isInitialLoad = false) {
-        selectedCustomerId = customerId;
-        const customer = customers.find(c => c.id === customerId);
-        if (customer) {
-            renderCustomerData(customer);
-            if (!isInitialLoad) {
-                searchResult.innerHTML = `<p class="text-sm text-green-600">已選擇客戶：${customer.name}</p>`;
-                searchInput.value = '';
-            } else {
-                searchResult.innerHTML = `<p class="text-sm text-slate-500">預設載入第一位客戶資料。</p>`;
-            }
-        }
-    }
-
-    // 顯示新增客戶 Modal
-    window.showAddCustomerModal = function() {
-        const content = `
-            <h3 class="text-xl font-semibold mb-4">新增客戶資料</h3>
-            <form id="add-customer-form" class="space-y-4 max-h-[70vh] overflow-y-auto p-1">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div><label class="block text-sm font-medium text-slate-700">姓名*</label><input type="text" id="new-name" class="input-field" required></div>
-                    <div><label class="block text-sm font-medium text-slate-700">出生年次</label><input type="text" id="new-birthYear" class="input-field"></div>
-                    <div class="sm:col-span-2"><label class="block text-sm font-medium text-slate-700">聯絡電話*</label><input type="tel" id="new-phone" class="input-field" required></div>
-                    <div class="sm:col-span-2"><label class="block text-sm font-medium text-slate-700">身分證號*</label><input type="text" id="new-id" class="input-field" required></div>
-                    <div><label class="block text-sm font-medium text-slate-700">地區</label><input type="text" id="new-address" class="input-field"></div>
-                    <div><label class="block text-sm font-medium text-slate-700">職業</label><input type="text" id="new-occupation" class="input-field"></div>
-                    <div><label class="block text-sm font-medium text-slate-700">黑名單狀況</label><input type="text" id="new-blacklistStatus" class="input-field"></div>
-                    <div><label class="block text-sm font-medium text-slate-700">繳款狀況</label><input type="text" id="new-paymentStatus" class="input-field"></div>
-                    <div class="sm:col-span-2"><label class="block text-sm font-medium text-slate-700">信用空間</label><select id="new-creditSpace" class="input-field"><option>尚有空間</option><option>普通</option><option>已借滿</option></select></div>
-                </div>
-                <div class="flex justify-end gap-2 mt-6 pt-4 border-t"><button type="button" class="btn bg-slate-200 hover:bg-slate-300" onclick="hideModal()">取消</button><button type="submit" class="btn btn-primary">儲存</button></div>
-            </form>
-        `;
-        showModal(content);
-        document.getElementById('add-customer-form').addEventListener('submit', handleAddCustomer);
-    }
-    
-    // 處理新增客戶
-    function handleAddCustomer(event) {
-        event.preventDefault();
-        const newCustomer = {
-            id: Date.now(),
-            name: document.getElementById('new-name').value,
-            phone: document.getElementById('new-phone').value,
-            idNumber: document.getElementById('new-id').value,
-            birthYear: document.getElementById('new-birthYear').value,
-            address: document.getElementById('new-address').value,
-            occupation: document.getElementById('new-occupation').value,
-            blacklistStatus: document.getElementById('new-blacklistStatus').value,
-            paymentStatus: document.getElementById('new-paymentStatus').value,
-            creditSpace: document.getElementById('new-creditSpace').value,
-            loans: [],
-            inquiries: []
+        const firebaseConfig = {
+            apiKey: "AIzaSyC-apF65Fag_27VhX6DjrMbBTmOkKjbXuU",
+            authDomain: "moneycc-15b93.firebaseapp.com",
+            projectId: "moneycc-15b93",
+            storageBucket: "moneycc-15b93.appspot.com",
+            messagingSenderId: "606708875693",
+            appId: "1:606708875693:web:1e5821f57d605156c7116e"
         };
-        customers.push(newCustomer);
-        hideModal();
-        showToast(`客戶「${newCustomer.name}」已成功新增！`);
-        selectCustomer(newCustomer.id);
-    }
 
-    // 顯示新增借款 Modal
-    function showAddLoanModal() {
-        const content = `
-            <h3 class="text-xl font-semibold mb-4">新增借款紀錄</h3>
-            <form id="add-loan-form" class="space-y-4">
-                <div><label class="block text-sm font-medium text-slate-700">當票號碼</label><input type="text" id="new-ticket" class="input-field" required></div>
-                <div><label class="block text-sm font-medium text-slate-700">品項</label><input type="text" id="new-item" class="input-field" required></div>
-                <div><label class="block text-sm font-medium text-slate-700">借款金額</label><input type="number" id="new-amount" class="input-field" required></div>
-                <div><label class="block text-sm font-medium text-slate-700">借款日期</label><input type="date" id="new-date" class="input-field" value="${new Date().toISOString().slice(0,10)}" required></div>
-                <div class="flex justify-end gap-2 mt-6"><button type="button" class="btn bg-slate-200 hover:bg-slate-300" onclick="hideModal()">取消</button><button type="submit" class="btn btn-primary">新增</button></div>
-            </form>
-        `;
-        showModal(content);
-        document.getElementById('add-loan-form').addEventListener('submit', handleAddLoan);
-    }
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
 
-    // 處理新增借款
-    function handleAddLoan(event) {
-        event.preventDefault();
-        if (!selectedCustomerId) return;
-        const newLoan = { ticket: document.getElementById('new-ticket').value, item: document.getElementById('new-item').value, amount: parseInt(document.getElementById('new-amount').value), date: document.getElementById('new-date').value, status: "典當中" };
-        const customer = customers.find(c => c.id === selectedCustomerId);
-        customer.loans.push(newLoan);
-        hideModal();
-        renderLoanRecords(customer.loans);
-        showToast('借款紀錄已新增');
-    }
+        let currentUser = null;
+        let customers = [];
+        let selectedCustomerId = null;
+        let unsubscribeCustomers = null;
 
-    // 處理新增照會
-    function handleAddInquiry() {
-        if (!selectedCustomerId) return;
-        const note = inquiryNoteInput.value.trim();
-        if (!note) {
-            showToast('備註內容不可為空', false);
-            return;
-        }
-        const newInquiry = { date: new Date().toLocaleString('zh-TW', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(/\//g, '-'), note: note };
-        const customer = customers.find(c => c.id === selectedCustomerId);
-        customer.inquiries.push(newInquiry);
-        renderInquiryHistory(customer.inquiries);
-        inquiryNoteInput.value = '';
-        showToast('備註紀錄已新增');
-    }
-    
-    // --- 事件監聽 ---
-    loginForm.addEventListener('submit', handleLogin);
-    logoutBtn.addEventListener('click', handleLogout);
-    searchBtn.addEventListener('click', handleSearch);
-    searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') handleSearch(); });
-    addInquiryBtn.addEventListener('click', handleAddInquiry);
-    addLoanBtn.addEventListener('click', showAddLoanModal);
-    modalBackdrop.addEventListener('click', hideModal);
+        const loginScreen = document.getElementById('login-screen');
+        const mainApp = document.getElementById('main-app');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const logoutBtn = document.getElementById('logout-btn');
+        const userManagementBtn = document.getElementById('user-management-btn');
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        const searchResult = document.getElementById('search-result');
+        const customerInfoCard = document.getElementById('customer-info-card');
+        const recordsSection = document.getElementById('records-section');
+        const noCustomerSelected = document.getElementById('no-customer-selected');
+        const infoName = document.getElementById('info-name');
+        const infoPhone = document.getElementById('info-phone');
+        const infoId = document.getElementById('info-id');
+        const infoBirthYear = document.getElementById('info-birthYear');
+        const infoAddress = document.getElementById('info-address');
+        const infoOccupation = document.getElementById('info-occupation');
+        const infoBlacklistStatus = document.getElementById('info-blacklistStatus');
+        const infoPaymentStatus = document.getElementById('info-paymentStatus');
+        const infoCreditSpace = document.getElementById('info-creditSpace');
+        const loanRecordsBody = document.getElementById('loan-records-body');
+        const inquiryHistory = document.getElementById('inquiry-history');
+        const inquiryNoteInput = document.getElementById('inquiry-note-input');
+        const addInquiryBtn = document.getElementById('add-inquiry-btn');
+        const addLoanBtn = document.getElementById('add-loan-btn');
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        const toast = document.getElementById('toast-notification');
 
-</script>
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userDocRef = doc(db, "users", user.uid);
+                const userDoc = await getDoc(userDocRef);
 
+                if (!userDoc.exists()) {
+                    console.error("User document not found in Firestore!");
+                    showToast("找不到使用者資料，請聯繫管理員", false);
+                    signOut(auth);
+                    return;
+                }
+                
+                const userData = userDoc.data();
+                // --- 訂閱檢查 ---
+                if (userData.role !== 'admin') {
+                    const now = Timestamp.now();
+                    if (!userData.subscriptionEndDate || userData.subscriptionEndDate < now) {
+                        showToast("您的帳號已過期，請聯繫管理員", false);
+                        signOut(auth);
+                        return;
+                    }
+                }
+
+                currentUser = { uid: user.uid, email: user.email, ...userData };
+                loginScreen.classList.add('hidden');
+                mainApp.classList.remove('hidden');
+                setupUIForRole();
+                listenToCustomers();
+            } else {
+                currentUser = null;
+                if (unsubscribeCustomers) unsubscribeCustomers();
+                mainApp.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+                clearCustomerDisplay();
+            }
+        });
+
+        const handleLogin = (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            loginError.textContent = '帳號或密碼錯誤！';
+            loginError.classList.add('hidden');
+
+            signInWithEmailAndPassword(auth, email, password)
+                .catch((error) => {
+                    console.error("Login Error:", error);
+                    if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                        loginError.classList.remove('hidden');
+                    }
+                });
+        };
+
+        const handleLogout = () => signOut(auth);
+
+        const setupUIForRole = () => {
+            if (!currentUser) return;
+            document.getElementById('current-user-name').textContent = currentUser.email;
+            document.getElementById('current-user-role').textContent = currentUser.role === 'admin' ? '管理員' : '一般會員';
+            const adminOnlyElements = document.querySelectorAll('.admin-only');
+            adminOnlyElements.forEach(el => el.style.display = currentUser.role === 'admin' ? '' : 'none');
+        };
+
+        const listenToCustomers = () => {
+            const customersCol = collection(db, "customers");
+            unsubscribeCustomers = onSnapshot(customersCol, (snapshot) => {
+                customers = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                if (selectedCustomerId) {
+                    const customer = customers.find(c => c.id === selectedCustomerId);
+                    if (customer) renderCustomerData(customer);
+                    else clearCustomerDisplay();
+                } else if (customers.length > 0) {
+                    selectCustomer(customers[0].id, true);
+                }
+            });
+        };
+
+        const renderCustomerData = (customer) => {
+            infoName.textContent = customer.name || '-';
+            infoPhone.textContent = customer.phone || '-';
+            infoId.textContent = customer.idNumber || '-';
+            infoBirthYear.textContent = customer.birthYear || '-';
+            infoAddress.textContent = customer.address || '-';
+            infoOccupation.textContent = customer.occupation || '-';
+            infoBlacklistStatus.textContent = customer.blacklistStatus || '-';
+            infoPaymentStatus.textContent = customer.paymentStatus || '-';
+            infoCreditSpace.textContent = customer.creditSpace || '-';
+            infoCreditSpace.classList.remove('text-red-600', 'text-green-600');
+            infoCreditSpace.classList.add(customer.creditSpace === '已借滿' ? 'text-red-600' : 'text-green-600');
+            customerInfoCard.classList.remove('hidden');
+            recordsSection.classList.remove('hidden');
+            noCustomerSelected.classList.add('hidden');
+            renderLoanRecords(customer.loans);
+            renderInquiryHistory(customer.inquiries);
+        };
+
+        const renderLoanRecords = (loans) => {
+            loanRecordsBody.innerHTML = '';
+            if (!loans || loans.length === 0) {
+                loanRecordsBody.innerHTML = '<tr><td colspan="5" class="text-center text-slate-500 py-4">無借款紀錄</td></tr>';
+                return;
+            }
+            loans.forEach(loan => {
+                const statusColor = loan.status === '典當中' ? 'text-red-600' : 'text-green-600';
+                const row = `<tr><td>${loan.ticket}</td><td>${loan.item}</td><td>NT$ ${loan.amount.toLocaleString()}</td><td>${loan.date}</td><td class="font-semibold ${statusColor}">${loan.status}</td></tr>`;
+                loanRecordsBody.innerHTML += row;
+            });
+        };
+
+        const renderInquiryHistory = (inquiries) => {
+            inquiryHistory.innerHTML = '';
+            if (!inquiries || inquiries.length === 0) {
+                inquiryHistory.innerHTML = '<p class="text-center text-slate-500">無備註紀錄</p>';
+                return;
+            }
+            const sortedInquiries = [...inquiries].sort((a, b) => new Date(b.date) - new Date(a.date));
+            sortedInquiries.forEach(inquiry => {
+                const item = `<div class="bg-slate-50 p-3 rounded-lg"><p class="text-slate-800">${inquiry.note}</p><p class="text-xs text-slate-400 text-right mt-1">${inquiry.date}</p></div>`;
+                inquiryHistory.innerHTML += item;
+            });
+        };
+
+        const clearCustomerDisplay = () => {
+            selectedCustomerId = null;
+            customerInfoCard.classList.add('hidden');
+            recordsSection.classList.add('hidden');
+            noCustomerSelected.classList.remove('hidden');
+            searchResult.innerHTML = '';
+            searchInput.value = '';
+        };
+
+        const handleSearch = () => {
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) {
+                searchResult.innerHTML = '<p class="text-sm text-yellow-600">請輸入查詢條件。</p>';
+                return;
+            }
+            const results = customers.filter(c => c.name.toLowerCase().includes(query) || c.phone.includes(query));
+            searchResult.innerHTML = '';
+            if (results.length > 0) {
+                const resultList = results.map(c => `<div class="p-2 hover:bg-slate-100 rounded-md cursor-pointer" onclick="selectCustomer('${c.id}')"><p class="font-medium text-slate-800">${c.name}</p><p class="text-sm text-slate-500">${c.phone}</p></div>`).join('');
+                searchResult.innerHTML = resultList;
+            } else {
+                let addBtn = (currentUser && currentUser.role === 'admin') ? `<button class="text-sm text-indigo-600 hover:underline mt-2" onclick="showAddCustomerModal()">是否要新增客戶？</button>` : '';
+                searchResult.innerHTML = `<p class="text-sm text-red-600">查無此客戶。</p>${addBtn}`;
+            }
+        };
+
+        window.selectCustomer = (customerId, isInitialLoad = false) => {
+            selectedCustomerId = customerId;
+            const customer = customers.find(c => c.id === customerId);
+            if (customer) {
+                renderCustomerData(customer);
+                if (!isInitialLoad) {
+                    searchResult.innerHTML = `<p class="text-sm text-green-600">已選擇客戶：${customer.name}</p>`;
+                } else {
+                    searchResult.innerHTML = `<p class="text-sm text-slate-500">預設載入第一位客戶資料。</p>`;
+                }
+                searchInput.value = '';
+            }
+        };
+
+        window.showAddCustomerModal = () => {
+            const content = `
+                <h3 class="text-xl font-semibold mb-4">新增客戶資料</h3>
+                <form id="add-customer-form" class="space-y-4 max-h-[70vh] overflow-y-auto p-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label class="block text-sm font-medium text-slate-700">姓名*</label><input type="text" id="new-name" class="input-field" required></div>
+                        <div><label class="block text-sm font-medium text-slate-700">出生年次</label><input type="text" id="new-birthYear" class="input-field"></div>
+                        <div class="sm:col-span-2"><label class="block text-sm font-medium text-slate-700">聯絡電話*</label><input type="tel" id="new-phone" class="input-field" required></div>
+                        <div class="sm:col-span-2"><label class="block text-sm font-medium text-slate-700">身分證號*</label><input type="text" id="new-id" class="input-field" required></div>
+                        <div><label class="block text-sm font-medium text-slate-700">地區</label><input type="text" id="new-address" class="input-field"></div>
+                        <div><label class="block text-sm font-medium text-slate-700">職業</label><input type="text" id="new-occupation" class="input-field"></div>
+                        <div><label class="block text-sm font-medium text-slate-700">黑名單狀況</label><input type="text" id="new-blacklistStatus" class="input-field"></div>
+                        <div><label class="block text-sm font-medium text-slate-700">繳款狀況</label><input type="text" id="new-paymentStatus" class="input-field"></div>
+                        <div class="sm:col-span-2"><label class="block text-sm font-medium text-slate-700">信用空間</label><select id="new-creditSpace" class="input-field"><option>尚有空間</option><option>普通</option><option>已借滿</option></select></div>
+                    </div>
+                    <div class="flex justify-end gap-2 mt-6 pt-4 border-t"><button type="button" class="btn bg-slate-200 hover:bg-slate-300" onclick="hideModal()">取消</button><button type="submit" class="btn btn-primary">儲存</button></div>
+                </form>
+            `;
+            showModal(content);
+            document.getElementById('add-customer-form').addEventListener('submit', handleAddCustomer);
+        };
+        
+        const handleAddCustomer = async (event) => {
+            event.preventDefault();
+            const newCustomer = {
+                name: document.getElementById('new-name').value, phone: document.getElementById('new-phone').value, idNumber: document.getElementById('new-id').value,
+                birthYear: document.getElementById('new-birthYear').value, address: document.getElementById('new-address').value, occupation: document.getElementById('new-occupation').value,
+                blacklistStatus: document.getElementById('new-blacklistStatus').value, paymentStatus: document.getElementById('new-paymentStatus').value, creditSpace: document.getElementById('new-creditSpace').value,
+                loans: [], inquiries: []
+            };
+            try {
+                const docRef = await addDoc(collection(db, "customers"), newCustomer);
+                hideModal();
+                showToast(`客戶「${newCustomer.name}」已成功新增！`);
+                selectCustomer(docRef.id);
+            } catch (e) {
+                console.error("Error adding document: ", e);
+                showToast("新增客戶失敗！", false);
+            }
+        };
+
+        window.showAddLoanModal = () => {
+            const content = `
+                <h3 class="text-xl font-semibold mb-4">新增借款紀錄</h3>
+                <form id="add-loan-form" class="space-y-4">
+                    <div><label class="block text-sm font-medium text-slate-700">當票號碼</label><input type="text" id="new-ticket" class="input-field" required></div>
+                    <div><label class="block text-sm font-medium text-slate-700">品項</label><input type="text" id="new-item" class="input-field" required></div>
+                    <div><label class="block text-sm font-medium text-slate-700">借款金額</label><input type="number" id="new-amount" class="input-field" required></div>
+                    <div><label class="block text-sm font-medium text-slate-700">借款日期</label><input type="date" id="new-date" class="input-field" value="${new Date().toISOString().slice(0,10)}" required></div>
+                    <div class="flex justify-end gap-2 mt-6"><button type="button" class="btn bg-slate-200 hover:bg-slate-300" onclick="hideModal()">取消</button><button type="submit" class="btn btn-primary">新增</button></div>
+                </form>
+            `;
+            showModal(content);
+            document.getElementById('add-loan-form').addEventListener('submit', handleAddLoan);
+        };
+
+        const handleAddLoan = async (event) => {
+            event.preventDefault();
+            if (!selectedCustomerId) return;
+            const newLoan = { ticket: document.getElementById('new-ticket').value, item: document.getElementById('new-item').value, amount: parseInt(document.getElementById('new-amount').value), date: document.getElementById('new-date').value, status: "典當中" };
+            const customerDocRef = doc(db, "customers", selectedCustomerId);
+            try {
+                await updateDoc(customerDocRef, { loans: arrayUnion(newLoan) });
+                hideModal();
+                showToast('借款紀錄已新增');
+            } catch (e) { console.error("Error adding loan: ", e); showToast("新增借款失敗！", false); }
+        };
+
+        const handleAddInquiry = async () => {
+            if (!selectedCustomerId) return;
+            const note = inquiryNoteInput.value.trim();
+            if (!note) { showToast('備註內容不可為空', false); return; }
+            const newInquiry = { date: new Date().toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).replace(/\//g, '-'), note: note };
+            const customerDocRef = doc(db, "customers", selectedCustomerId);
+            try {
+                await updateDoc(customerDocRef, { inquiries: arrayUnion(newInquiry) });
+                inquiryNoteInput.value = '';
+                showToast('備註紀錄已新增');
+            } catch (e) { console.error("Error adding inquiry: ", e); showToast("新增備註失敗！", false); }
+        };
+
+        const showUserManagementModal = async () => {
+            const usersCol = collection(db, "users");
+            const userSnapshot = await getDocs(usersCol);
+            let userListHtml = '<div class="overflow-x-auto"><table class="w-full table-auto"><thead><tr><th>Email</th><th>到期日</th><th>設定新到期日</th></tr></thead><tbody>';
+
+            userSnapshot.forEach(doc => {
+                const user = { id: doc.id, ...doc.data() };
+                if (user.role === 'admin') return; // 不顯示管理員自己
+
+                const expiryDate = user.subscriptionEndDate ? user.subscriptionEndDate.toDate().toLocaleDateString('zh-TW') : '未設定';
+                const today = new Date().toISOString().split('T')[0];
+
+                userListHtml += `
+                    <tr class="border-b">
+                        <td class="py-2">${user.email}</td>
+                        <td class="py-2">${expiryDate}</td>
+                        <td class="py-2 flex items-center gap-2">
+                            <input type="date" id="expiry-date-${user.id}" class="input-field !w-auto" min="${today}">
+                            <button class="btn btn-primary text-sm" onclick="updateSubscription('${user.id}')">設定</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            userListHtml += '</tbody></table></div>';
+            
+            const content = `
+                <h3 class="text-xl font-semibold mb-4">使用者訂閱管理</h3>
+                ${userListHtml}
+                <div class="flex justify-end mt-6">
+                    <button type="button" class="btn bg-slate-200 hover:bg-slate-300" onclick="hideModal()">關閉</button>
+                </div>
+            `;
+            showModal(content);
+        };
+
+        window.updateSubscription = async (userId) => {
+            const dateInput = document.getElementById(`expiry-date-${userId}`);
+            if (!dateInput.value) {
+                showToast("請選擇一個日期", false);
+                return;
+            }
+            const newExpiryDate = Timestamp.fromDate(new Date(dateInput.value));
+            const userDocRef = doc(db, "users", userId);
+            try {
+                await updateDoc(userDocRef, { subscriptionEndDate: newExpiryDate });
+                showToast("已成功更新使用者期限！");
+                hideModal();
+                showUserManagementModal(); // Refresh the modal
+            } catch (e) {
+                console.error("Error updating subscription: ", e);
+                showToast("更新失敗！", false);
+            }
+        };
+
+        const showToast = (message, isSuccess = true) => {
+            toast.textContent = message;
+            toast.className = `toast show ${isSuccess ? 'bg-green-500' : 'bg-red-500'}`;
+            setTimeout(() => { toast.classList.remove('show'); }, 3000);
+        };
+        const showModal = (content) => { modalContent.innerHTML = content; modalBackdrop.classList.remove('hidden'); modal.classList.remove('hidden'); };
+        window.hideModal = () => { modalBackdrop.classList.add('hidden'); modal.classList.add('hidden'); modalContent.innerHTML = ''; };
+
+        loginForm.addEventListener('submit', handleLogin);
+        logoutBtn.addEventListener('click', handleLogout);
+        userManagementBtn.addEventListener('click', showUserManagementModal);
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') handleSearch(); });
+        addInquiryBtn.addEventListener('click', handleAddInquiry);
+        addLoanBtn.addEventListener('click', () => window.showAddLoanModal());
+        modalBackdrop.addEventListener('click', () => window.hideModal());
+
+    </script>
 </body>
 </html>
